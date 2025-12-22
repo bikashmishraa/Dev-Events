@@ -1,14 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Schibsted_Grotesk, Martian_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// import LightRays from '../components/LightRays';
+// import GhostCursor from '../components/GhostCursor';
+import Aurora from '../components/Aurora';
+// import LightPillar from '../components/LightPillar';
+import Navbar from "../components/Navbar";
+const schibstedGrotesk = Schibsted_Grotesk({
+  variable: "--font-schibsted-grotesk",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const martianMono = Martian_Mono({
+  variable: "--font-martian-mono",
   subsets: ["latin"],
 });
 
@@ -25,8 +29,71 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${schibstedGrotesk.variable} ${martianMono.variable} min-h-screen antialiased bg-black text-white`}
       >
+        
+  
+  <Aurora
+    colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}
+    blend={1}
+    amplitude={1}
+    speed={0.8}
+  />
+
+{/* <div style={{ width: '100%', height: '600px', position: 'absolute' }}>
+  <LightPillar
+    topColor="#5227FF"
+    bottomColor="#FF9FFC"
+    intensity={1.0}
+    rotationSpeed={0.3}
+    glowAmount={0.005}
+    pillarWidth={3.0}
+    pillarHeight={0.4}
+    noiseIntensity={0.5}
+    pillarRotation={0}
+    interactive={false}
+    mixBlendMode="normal"
+  />
+</div> */}
+{/* <div className="absolute inset-0 z-[-1] overflow-hidden top-0 min-h-screen">
+  <LightRays
+    raysOrigin="top-center"
+    raysColor="#422bd4"
+    raysSpeed={1}
+    lightSpread={3}
+    rayLength={2}
+    followMouse={true}
+    mouseInfluence={0.1}
+    noiseAmount={0.1}
+    distortion={0.05}
+    className="custom-rays"
+  />
+</div>
+ */}
+
+{/* <div style={{ height: 600, position: 'relative' }}>
+  <GhostCursor
+    // Visuals
+    color="#B19EEF"
+    brightness={1}
+    edgeIntensity={0}
+
+    // Trail and motion
+    trailLength={50}
+    inertia={0.5}
+
+    // Post-processing
+    grainIntensity={0.05}
+    bloomStrength={0.1}
+    bloomRadius={1.0}
+    bloomThreshold={0.025}
+
+    // Fade-out behavior
+    fadeDelayMs={1000}
+    fadeDurationMs={1500}
+  />
+</div> */}
+        <Navbar/>
         {children}
       </body>
     </html>
